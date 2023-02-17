@@ -4,8 +4,10 @@ from flask import request
 from app.helper import validate_add_task_request, validate_delete_task_request, validate_update_task_request
 
 
+# list down all the tasks in todo list
 @app.route('/task', methods=['GET'])
 def list_tasks():
+    
     tasks = Task.query.all()
     return {
         "status":"success", 
@@ -17,6 +19,7 @@ def list_tasks():
     }
 
 
+# add a new task in the todo list
 @app.route('/task', methods=['POST'])
 def add_task():
     '''
@@ -36,6 +39,8 @@ def add_task():
     db.session.commit()
     return {"status":"success"}
 
+
+# takse the info about a task and updates the necessary changes
 @app.route('/task', methods=['PUT'])
 def update_task():
     '''
@@ -66,6 +71,7 @@ def update_task():
     })
 
 
+# deletes the task from todo list
 @app.route('/task', methods=['DELETE'])
 def delete_task():
     '''
