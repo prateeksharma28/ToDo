@@ -19,6 +19,12 @@ def list_tasks():
 
 @app.route('/task', methods=['POST'])
 def add_task():
+    '''
+        request_body = {
+            "name":"Task_Name"
+        }
+
+    '''
     body = request.json
     if not validate_add_task_request(body):
         return {
@@ -32,6 +38,14 @@ def add_task():
 
 @app.route('/task', methods=['PUT'])
 def update_task():
+    '''
+        request_body = {
+            "id":"task_id"
+            "name":"Task_Name"
+            "status":true/false
+        }
+
+    '''
     body = request.json
     if not validate_update_task_request(body):
         return {
@@ -54,6 +68,12 @@ def update_task():
 
 @app.route('/task', methods=['DELETE'])
 def delete_task():
+    '''
+        request_body = {
+            "id":"task_id"
+        }
+
+    '''
     body = request.json
     if not validate_delete_task_request(body):
         return {
