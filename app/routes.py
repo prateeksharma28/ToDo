@@ -29,7 +29,7 @@ def add_task():
 
     '''
     body = request.json
-    if not validate_add_task_request(body):
+    if not validate_add_task_request(body): # validating add request
         return {
             "status":"fail"
         }, 400
@@ -40,7 +40,7 @@ def add_task():
     return {"status":"success"}
 
 
-# takse the info about a task and updates the necessary changes
+# task the info about a task and updates the necessary changes
 @app.route('/task', methods=['PUT'])
 def update_task():
     '''
@@ -52,7 +52,7 @@ def update_task():
 
     '''
     body = request.json
-    if not validate_update_task_request(body):
+    if not validate_update_task_request(body):  # validating update request
         return {
             "status":"fail"
         }, 400
@@ -81,7 +81,7 @@ def delete_task():
 
     '''
     body = request.json
-    if not validate_delete_task_request(body):
+    if not validate_delete_task_request(body):  # validating delete request
         return {
             "status":"fail"
         }, 400
